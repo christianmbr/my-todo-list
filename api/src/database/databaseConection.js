@@ -1,4 +1,7 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config() 
 
 const url = process.env.MONGO_PATH
 mongoose.set('strictQuery', false)
