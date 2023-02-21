@@ -1,34 +1,32 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import Card from '../card/Card.jsx'
+import axios from 'axios'
 import './carLog.css'
 
-const getPath = `http://localhost:5001/api/v1/phrase`
-
-export default function CardLog() {
-  const [ todos, setTodos ] = useState([])
-
-  useEffect(()=> {
-    const loadTodos = async () => {
-      try {
-        const todos = await axios.get(getPath)
-        setTodos(todos.data.data)
-      } catch (err) {
-        console.log(err.message)
-      }
+export default function CardLog({ todos, setSendTodo, senTodo }) {
+  const deletePath = 'http://localhost:5001/api/v1/phrase/'
+  const onDelete = async (id) => {
+    try {
+      const isDeleted = await axios.delete(`${deletePath}${id}`)
+      setSendTodo(senTodo + 1)
+      console.log(isDeleted.data.message)
+    } catch(err) {
+      console.log(err.message)
     }
-    loadTodos()
-  }, [])
+  }
 
   return (
-    <div className='cardLog'>
+    <div>
       {
-        todos.map(todo => {
+        todos.map(todos => {
           return (
-            <Card 
-              title={todo.title}
-              phrase={todo.phrase}
-            />
+            <div className='cardLog'>
+              <Card
+                key={todos._id}
+                title={todos.title}
+                // phrase={todos.phrase}
+              />
+              <button onClick={() => onDelete(todos._id)}>Done</button>
+            </div> 
           )
         })
       }

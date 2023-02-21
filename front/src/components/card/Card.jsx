@@ -5,7 +5,7 @@ export default function Card({ title, phrase }) {
     <div className="card">
       <div className='cardInfo'>
         <p>{ title }</p>
-        <p>{ phrase }</p>
+        {/* <p>{ phrase }</p> */}
       </div>
     </div>
   )

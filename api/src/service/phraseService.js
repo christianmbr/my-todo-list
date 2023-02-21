@@ -33,9 +33,9 @@ async function patchPhrase(body) {
   }
 }
 
-async function deletePhrase(title) {
+async function deletePhrase(id) {
   try {
-    return await dataPhrase.deletePhrase(title)
+    return await dataPhrase.deletePhrase(id)
   } catch (error) {
     throw error
   }

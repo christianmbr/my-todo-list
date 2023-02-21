@@ -8,7 +8,7 @@ phraseRouter.route('/')
   .post(phraseController.postPhrase)
   .patch(phraseController.patchPhrase)
 
-phraseRouter.route('/:title')
+phraseRouter.route('/:id')
   // .get(phraseController.getPhrase)
   .delete(phraseController.deletePhrase)
 

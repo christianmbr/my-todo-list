@@ -35,10 +35,10 @@ async function postPhrase(newPhrase) {
   }
 }
 
-async function deletePhrase (title) {
+async function deletePhrase (id) {
   try {
     await dataBase.conection()
-    const isdeleted = await Todo.deleteOne({ title: title })
+    const isdeleted = await Todo.deleteOne({ _id: id })
     await dataBase.close()
     return isdeleted.deletedCount != 0 ? true : false 
   } catch (error){

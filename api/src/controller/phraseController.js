@@ -72,9 +72,9 @@ async function patchPhrase(req, res) {
 }
 
 async function deletePhrase(req, res){
-  if (req.params.title){
+  if (req.params.id){
     try {
-      const isDeleted = await phraseService.deletePhrase(req.params.title)    
+      const isDeleted = await phraseService.deletePhrase(req.params.id)    
       return isDeleted 
         ? res.status(201).send({ status: "OK", message: 'The phrase was deleted successfully'})
         : res.status(404).send({ status: "Failed", message: 'The phrase could not be deleted. It may be because the phrase does not exist.' })  
