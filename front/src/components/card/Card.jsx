@@ -4,8 +4,9 @@ export default function Card({ title, phrase }) {
   return (
     <div className="card">
       <div className='cardInfo'>
-        <p>{ title }</p>
-        {/* <p>{ phrase }</p> */}
+        <h2>{ title }</h2>
+        <p>{ phrase }</p>
+        <br />
       </div>
     </div>
   )

@@ -3,14 +3,14 @@ import phraseService from "../service/phraseService.js"
 async function getPhrases(req, res) {
   try {
     const phrase = await phraseService.getPhrases()
-    return res.status(200).send({ 
-      status: 'OK', 
+    return res.status(200).send({
+      status: 'OK',
       data: phrase
     })
   } catch (error) {
     return res.status(500).send({
       status: 'FAILED',
-      error: error 
+      error: error
     })
   }
 }

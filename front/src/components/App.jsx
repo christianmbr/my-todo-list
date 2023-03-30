@@ -19,7 +19,7 @@ export default function App () {
       }
     }
     loadTodos()
-    console.log(sendTodo)
+    // console.log(sendTodo)
   }, [ sendTodo ])
 
   return (

@@ -23,9 +23,9 @@ export default function CardLog({ todos, setSendTodo, senTodo }) {
               <Card
                 key={todos._id}
                 title={todos.title}
-                // phrase={todos.phrase}
+                phrase={todos.phrase}
               />
-              <button onClick={() => onDelete(todos._id)}>Done</button>
+              <button onClick={() => onDelete(todos._id)}>Delete phrase</button>
             </div> 
           )
         })

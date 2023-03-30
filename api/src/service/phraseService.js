@@ -1,4 +1,6 @@
 import dataPhrase from '../database/dataPhrases.js'
+import translateEsToEn from './translate.js'
+
 import { v4 }from 'uuid' // Crea una id unica de la siguiente manera v4()
 
 async function getPhrases() {
@@ -9,14 +11,17 @@ async function getPhrases() {
   }
 }
 
-async function postPhrase(phrase) {
+async function postPhrase(bodyPost) {
+  const translatedText = await translateEsToEn(bodyPost.title)
+  bodyPost.phrase = translatedText
+
   const newPhrase = {
     id: v4(),
     createDate: new Date().toLocaleString('en-US', { timezone: 'UTC' }),
     updatedDate: new Date().toLocaleString('en-US', { timezone: 'UTC' }),
-    ...phrase
+    ...bodyPost
   }
-  
+
   try {
     return await dataPhrase.postPhrase(newPhrase)
   } catch (error) {
