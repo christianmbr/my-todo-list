@@ -1,0 +1,92 @@
+.addBarForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: auto;
+    height: auto;
+}
+.addBarSearch {
+    font-family: 'Montserrat';
+    width: 241px;
+    height: 48px;
+    padding-left: 25px;
+    padding-right: 10px;
+
+    background: #4A4A4A;
+    border-radius: 16px;
+
+    font-size: medium;
+    color: #9b9b9b;
+}
+.addBarButton {
+    font-family: 'Montserrat';
+    color: #9b9b9b;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 89px;
+    height: 48px;
+
+    background: #4A4A4A;
+    border-radius: 16px;
+    font-size: medium;
+
+    cursor: pointer;
+    transition: .5s;
+}
+
+.addBarButton:hover {
+    background: #9b9b9b;
+    color: #4A4A4A;
+}
+
+.addBarFormColorPanel{
+    flex-direction: row;
+    display: flex;
+    gap: 5px;
+}
+
+.colorPanel {
+    background-color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 12px;
+    
+    width: 25px;
+    height: 25px;
+
+    transition: .5s;
+}
+
+.colorPanel:hover {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(65, 65, 65, 0.507);
+}
+
+.selected {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(65, 65, 65, 0.507);
+}
+
+.red{
+    background-color: #F68E60;
+}
+
+.green {
+    background-color: #98E9AB;
+}
+
+.blue {
+    background-color: #A0E3DC;
+}

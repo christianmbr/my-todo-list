@@ -1,0 +1,54 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 6px;
+
+    width: 340px;
+    height: 218px;
+
+    /* background: #F68E60; */
+    background-color: white;
+    border-radius: 16px;
+}
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 11px;
+
+}
+
+.cardText {
+    width: 308px;
+    height: 78px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+
+    color: #030103;
+}
+
+.cardPhrase {
+    width: 308px;
+    height: 26px;
+
+    font-family: 'Catamaran';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+
+    color: #030103;
+}

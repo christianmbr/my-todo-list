@@ -24,9 +24,10 @@ export default function CardLog({ todos, setSendTodo, senTodo }) {
                 key={todos._id}
                 title={todos.title}
                 phrase={todos.phrase}
+                color={todos.color}
               />
-              <button onClick={() => onDelete(todos._id)}>Delete phrase</button>
-            </div> 
+              <button className='cardLogButton' onClick={() => onDelete(todos._id)}>Delete phrase</button>
+            </div>
           )
         })
       }

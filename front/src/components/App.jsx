@@ -23,7 +23,7 @@ export default function App () {
   }, [ sendTodo ])
 
   return (
-    <div className="principalContainer">
+    <div className="app">
       <AddBar setSendTodo={ setSendTodo } senTodo={ sendTodo } />
       <CardLog todos={ todos } setSendTodo={ setSendTodo } senTodo={ sendTodo } />
     </div>

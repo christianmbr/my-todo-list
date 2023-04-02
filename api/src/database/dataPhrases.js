@@ -17,7 +17,7 @@ async function getAllPhrases() {
 
 async function postPhrase(newPhrase) {
   try {
-    // Verificar si existe. ===========
+    // Verificar si existe.
     await dataBase.conection()
     const newTask = new Todo({
       createDate: newPhrase.createDate,
