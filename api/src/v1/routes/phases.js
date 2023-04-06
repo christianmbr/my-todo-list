@@ -1,15 +1,15 @@
 import express from 'express'
+import { authToken } from '../../middleware/authMiddleware.js'
 import phraseController from '../../controller/phraseController.js'
 
 const phraseRouter = express.Router()
 
 phraseRouter.route('/')
-  .get(phraseController.getPhrases)
-  .post(phraseController.postPhrase)
-  .patch(phraseController.patchPhrase)
+  .get(authToken, phraseController.getPhrases)
+  .post(authToken, phraseController.postPhrase)
 
 phraseRouter.route('/:id')
-  // .get(phraseController.getPhrase)
-  .delete(phraseController.deletePhrase)
+  .patch(authToken, phraseController.patchPhrase)
+  .delete(authToken, phraseController.deletePhrase)
 
 export default phraseRouter

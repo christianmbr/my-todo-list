@@ -1,66 +1,46 @@
-import dataBase from './databaseConection.js'
-// import db from '../../db.json' assert { type: 'json' }
-// import utils from './utils.js'
+import Phrase from './model/phraseModel.js'
 
-const Todo = dataBase.squema()
-
-async function getAllPhrases() {
+async function getAllPhrases (userId) {
   try {
-    await dataBase.conection()
-    const allTodos = await Todo.find({})
-    await dataBase.close()
-    return allTodos
-  } catch(err) {
+    const allPhrases = await Phrase.find({ userId })
+    return allPhrases
+  } catch (err) {
     console.log(err.message)
   }
 }
 
-async function postPhrase(newPhrase) {
+async function postPhrase (newPhrase) {
   try {
-    // Verificar si existe.
-    await dataBase.conection()
-    const newTask = new Todo({
-      createDate: newPhrase.createDate,
-      updatedDate: newPhrase.updatedDate,
+    const phrase = new Phrase({
       isArchived: newPhrase.isArchived,
       title: newPhrase.title,
       phrase: newPhrase.phrase,
-      color: newPhrase.color
+      color: newPhrase.color,
+      userId: newPhrase.userId
     })
-    await newTask.save()
-    await dataBase.close()
+    await phrase.save()
     return true
-  } catch(err){
+  } catch (err) {
     console.log('An erro has ocurrent!\n', err)
   }
 }
 
-async function deletePhrase (id) {
+async function deletePhrase (userId, id) {
   try {
-    await dataBase.conection()
-    const isdeleted = await Todo.deleteOne({ _id: id })
-    await dataBase.close()
-    return isdeleted.deletedCount != 0 ? true : false 
-  } catch (error){
+    const isDeleted = await Phrase.deleteOne({ userId, _id: id })
+    return isDeleted.deletedCount !== 0
+  } catch (error) {
     console.log(error.message)
   }
 }
 
-async function pathcPhrase (date, body){
+async function pathcPhrase (userId, paramsId, body) {
   try {
-    await dataBase.conection()
-    const updated = await Todo.updateOne({ title: body.title }, {
-      updatedDate: date,
-      isArchived: body.isArchived,
-      title: body.title,
-      phrase: body.phrase,
-      color: body.color,
-    })
-    await dataBase.close()
-    return updated.modifiedCount != 0 ? true : false
-  } catch(err) {
+    await Phrase.updateOne({ userId, _id: paramsId }, body)
+    return true
+  } catch (err) {
     console.log(err.message)
   }
 }
 
-export default { getAllPhrases, postPhrase, deletePhrase, pathcPhrase}
+export default { getAllPhrases, postPhrase, deletePhrase, pathcPhrase }

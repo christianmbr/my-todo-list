@@ -1,45 +1,38 @@
 import dataPhrase from '../database/dataPhrases.js'
 import translateEsToEn from './translate.js'
 
-async function getPhrases() {
+async function getPhrases (userId) {
   try {
-    return await dataPhrase.getAllPhrases()
+    return await dataPhrase.getAllPhrases(userId)
   } catch (error) {
-    throw error
+    console.log(error.message)
   }
 }
 
-async function postPhrase(bodyPost) {
-  const translatedText = await translateEsToEn(bodyPost.title)
-  bodyPost.phrase = translatedText
-
-  const newPhrase = {
-    createDate: new Date().toLocaleString('en-US', { timezone: 'UTC' }),
-    updatedDate: new Date().toLocaleString('en-US', { timezone: 'UTC' }),
-    ...bodyPost
-  }
-
+async function postPhrase (newPhrase) {
   try {
+    const translatedText = await translateEsToEn(newPhrase.title)
+    newPhrase.phrase = translatedText
+
     return await dataPhrase.postPhrase(newPhrase)
   } catch (error) {
-    throw error
+    console.log(error.message)
   }
 }
 
-async function patchPhrase(body) {
-  const date = new Date().toLocaleString('en-US', { timezone: 'UTC' })
+async function patchPhrase (userId, paramsId, body) {
   try {
-    return await dataPhrase.pathcPhrase(date, body)
+    return await dataPhrase.pathcPhrase(userId, paramsId, body)
   } catch (error) {
-    throw error
+    console.log(error.message)
   }
 }
 
-async function deletePhrase(id) {
+async function deletePhrase (userId, phraseId) {
   try {
-    return await dataPhrase.deletePhrase(id)
+    return await dataPhrase.deletePhrase(userId, phraseId)
   } catch (error) {
-    throw error
+    console.log(error.message)
   }
 }
 
