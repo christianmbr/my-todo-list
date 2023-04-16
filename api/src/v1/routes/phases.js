@@ -9,6 +9,7 @@ phraseRouter.route('/')
   .post(authToken, phraseController.postPhrase)
 
 phraseRouter.route('/:id')
+  .get(authToken, phraseController.getOnePhrase)
   .patch(authToken, phraseController.patchPhrase)
   .delete(authToken, phraseController.deletePhrase)
 

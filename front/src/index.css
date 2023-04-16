@@ -19,6 +19,63 @@ html {
 }
 
 body {
+    padding: 10px;
     font-family: 'Montserrat', sans-serif;
-    background: #1E1E1E;
+    /* background-image: linear-gradient(to right top, #6bd1b0, #4bcdc4, #34c8d7, #3cc0e4, #5ab7eb, #5fbaef, #64bcf4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: #494949;
+    
+    /* background-color: yellow; */
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+button {
+    padding: 0.1em 0.2em;
+    width: 7em;
+    height: 2em;
+    background-color: black;
+    border: 0.08em solid black;
+    border-radius: 0.3em;
+    font-size: 12px;
+}
+  
+button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 4.2em;
+    height: 1em;
+    background-color: #fff;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: black;
+    border: 0.08em solid black;
+    box-shadow: 0 0.4em 0.1em 0.019em #212121;
+    cursor: pointer;
+}
+  
+button span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 black;
+}
+  
+button span:not(hover) {
+    transition: all 1s;
+}
+
+input {
+    border-radius: .3rem;
+    color: rgb(72, 72, 72);
+    padding: 5px;
+    box-shadow: 0 0.2rem #000000;
+}
+
+a:visited{
+    color: black;
 }

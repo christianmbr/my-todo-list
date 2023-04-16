@@ -10,6 +10,6 @@ export async function authToken (req, res, next) {
 
     next()
   } catch (error) {
-    res.json({ message: 'Invalid token', error: error.message })
+    res.json({ status: 3, message: 'Invalid token', error: error.message })
   }
 }

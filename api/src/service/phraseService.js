@@ -1,6 +1,14 @@
 import dataPhrase from '../database/dataPhrases.js'
 import translateEsToEn from './translate.js'
 
+async function getOnePhrase (idPhrase) {
+  try {
+    return await dataPhrase.getOnePhrase(idPhrase)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 async function getPhrases (userId) {
   try {
     return await dataPhrase.getAllPhrases(userId)
@@ -36,4 +44,4 @@ async function deletePhrase (userId, phraseId) {
   }
 }
 
-export default { getPhrases, postPhrase, patchPhrase, deletePhrase }
+export default { getPhrases, postPhrase, patchPhrase, deletePhrase, getOnePhrase }

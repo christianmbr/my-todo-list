@@ -1,0 +1,6 @@
+.nav-bar-log-out {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 15px;
+    color: black;
+}

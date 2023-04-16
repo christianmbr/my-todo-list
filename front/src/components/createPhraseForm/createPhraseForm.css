@@ -1,0 +1,14 @@
+.createPhraseForm {
+   /* background-color: green; */
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 4px;
+   gap: 7px;
+   margin-bottom: 20px;
+}
+
+.botosss{
+    padding-top: 5px;
+}

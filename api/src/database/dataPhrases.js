@@ -1,5 +1,14 @@
 import Phrase from './model/phraseModel.js'
 
+async function getOnePhrase (idPhrase) {
+  try {
+    const phraseFound = await Phrase.findById(idPhrase)
+    return phraseFound
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 async function getAllPhrases (userId) {
   try {
     const allPhrases = await Phrase.find({ userId })
@@ -18,8 +27,8 @@ async function postPhrase (newPhrase) {
       color: newPhrase.color,
       userId: newPhrase.userId
     })
-    await phrase.save()
-    return true
+    const newPhraseCreated = await phrase.save()
+    return newPhraseCreated
   } catch (err) {
     console.log('An erro has ocurrent!\n', err)
   }
@@ -43,4 +52,4 @@ async function pathcPhrase (userId, paramsId, body) {
   }
 }
 
-export default { getAllPhrases, postPhrase, deletePhrase, pathcPhrase }
+export default { getAllPhrases, postPhrase, deletePhrase, pathcPhrase, getOnePhrase }

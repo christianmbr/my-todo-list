@@ -1,5 +1,17 @@
 import phraseService from '../service/phraseService.js'
 
+async function getOnePhrase (req, res) {
+  try {
+    const idPhrase = req.params.id
+    const phraseFound = await phraseService.getOnePhrase(idPhrase)
+
+    return res.status(200).json({ status: 200, message: 'Phrase is found', data: phraseFound })
+  } catch (error) {
+    console.log(error.message)
+    return res.json({ status: 456, message: 'Error' })
+  }
+}
+
 async function getPhrases (req, res) {
   try {
     const phrase = await phraseService.getPhrases(req.userId)
@@ -32,10 +44,15 @@ async function postPhrase (req, res) {
       userId: req.userId
     }
 
-    const createPhrase = await phraseService.postPhrase(newPhrase)
-    return createPhrase
-      ? res.status(201).send({ status: 'OK', message: 'The phrase was added.' })
-      : res.status(409).send({ status: 'Failed', message: 'The phrase could not be entered. It may be because one already exists.' })
+    const newPhraseCreated = await phraseService.postPhrase(newPhrase)
+    if (!newPhraseCreated) {
+      res.status(409).send({
+        status: 'Failed',
+        message: 'The phrase could not be entered. It may be because one already exists.'
+      })
+    }
+
+    return res.status(201).send({ status: 'OK', message: 'The phrase was added.', data: newPhraseCreated })
   } catch (error) {
     return res.status(500).send({
       status: 'FAILED',
@@ -79,4 +96,4 @@ async function deletePhrase (req, res) {
   }
 }
 
-export default { getPhrases, postPhrase, patchPhrase, deletePhrase }
+export default { getPhrases, postPhrase, patchPhrase, deletePhrase, getOnePhrase }

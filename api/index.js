@@ -4,6 +4,7 @@ import authRouter from './src/v1/routes/authRouter.js'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import morgan from 'morgan'
 
 dotenv.config()
 dataBase.conection().then(db => console.log('Server is conected')).catch(error => console.error(error))
@@ -12,6 +13,7 @@ const expressApp = express()
 const PORT = process.env.PORT
 
 expressApp.use(cors())
+expressApp.use(morgan('dev'))
 expressApp.use(express.json())
 expressApp.use('/api/v1/auth', authRouter)
 expressApp.use('/api/v1/phrase', phraseRouter)

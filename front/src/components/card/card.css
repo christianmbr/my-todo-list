@@ -1,54 +1,71 @@
+/*Neo Brutalism pricing card*/
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 16px;
-    gap: 6px;
+    gap: 1.5rem;
+    
+    padding: 1rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
 
-    width: 340px;
-    height: 218px;
+    overflow: hidden;
+    overflow-y: auto;
 
-    /* background: #F68E60; */
-    background-color: white;
-    border-radius: 16px;
+    transition: all 0.2s ease-in-out;
 }
-.cardInfo {
+
+.card:hover{
+    transform: scale(1.05);
+    background-image: linear-gradient(to right top, #58305d, #673462, #773965, #863e68, #95436a);
+}
+
+.card-selected {
+    background-image: linear-gradient(to right top, #58305d, #673462, #773965, #863e68, #95436a);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 11px;
+    gap: 1.5rem;
+    
+    padding: 1rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
 
+    overflow: hidden;
+    overflow-y: auto;
+    
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
-.cardText {
-    width: 308px;
-    height: 78px;
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 27px;
-    line-height: 39px;
+.card-pending {
+    background-image: linear-gradient(to right top, #58305d, #673462, #773965, #863e68, #95436a);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    padding: 1rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
 
-    color: #030103;
+    overflow: hidden;
+    overflow-y: auto;
+
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+  
+/*Card content*/
+.card-phrase {
+    color: #05060f;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.cardPhrase {
-    width: 308px;
-    height: 26px;
-
-    font-family: 'Catamaran';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
-
-    color: #030103;
+.card-title {
+    color: #fff;
+    flex-direction: column;
+    gap: .5rem;
 }

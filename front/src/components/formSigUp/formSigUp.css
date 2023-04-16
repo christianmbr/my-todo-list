@@ -1,0 +1,17 @@
+.form-sig-up{
+    background-image: linear-gradient(to right top, #58305d, #673462, #773965, #863e68, #95436a);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
+
+    width: 300px;
+    height: 300px;
+}

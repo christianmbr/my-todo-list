@@ -9,11 +9,11 @@ export async function sigUp (req, res) {
     }
 
     const token = await userService.sigup(req.body)
-    if (!token) { return res.json({ message: 'Something went wrong' }) }
+    if (!token) { return res.json({ status: 2, message: 'Something went wrong' }) }
 
-    return res.json({ message: 'Welcome', token })
+    return res.json({ status: 1, message: 'Welcome', token })
   } catch (error) {
-    console.error(error.message)
+    return res.json({ status: 2, message: 'Error' })
   }
 }
 
@@ -26,9 +26,9 @@ export async function sigIn (req, res) {
     }
 
     const token = await userService.sigin(req.body)
-    if (!token) { return res.json({ message: 'Something went wrong' }) }
+    if (!token) { return res.json({ status: 2, message: 'Something went wrong' }) }
 
-    return res.json({ message: 'Welcome back', token })
+    return res.json({ status: 1, message: 'Welcome back', token })
   } catch (error) {
     console.error(error.message)
   }

@@ -1,35 +1,15 @@
-import Card from '../card/Card.jsx'
-import axios from 'axios'
-import './carLog.css'
+import Card from '../card/card'
+import './cardLog.css'
 
-export default function CardLog({ todos, setSendTodo, senTodo }) {
-  const deletePath = 'http://localhost:5001/api/v1/phrase/'
-  const onDelete = async (id) => {
-    try {
-      const isDeleted = await axios.delete(`${deletePath}${id}`)
-      setSendTodo(senTodo + 1)
-      console.log(isDeleted.data.message)
-    } catch(err) {
-      console.log(err.message)
-    }
-  }
-
+export default function CardLog ({ allPhrases }) {
   return (
-    <div>
+    <div className='card-log'>
       {
-        todos.map(todos => {
-          return (
-            <div className='cardLog'>
-              <Card
-                key={todos._id}
-                title={todos.title}
-                phrase={todos.phrase}
-                color={todos.color}
-              />
-              <button className='cardLogButton' onClick={() => onDelete(todos._id)}>Delete phrase</button>
-            </div>
-          )
-        })
+        allPhrases != null
+          ? allPhrases.map(phrase => {
+            return <Card key={phrase._id} phraseId={phrase._id} phrase={phrase.phrase} phraseSpanish={phrase.title} />
+          })
+          : null
       }
     </div>
   )
